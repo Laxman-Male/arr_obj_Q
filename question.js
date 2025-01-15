@@ -30,3 +30,27 @@ const products = [
 //   3. Identify all products whose names contain the letter "e" and have a discount of at least 15%.
 //   4. Create a list of products from "Books" or "Electronics," showing only their names and final prices.
 //   5. Find all products priced over $300 and with a discount greater than 15%, and display their names and categories.
+
+
+
+// 1. 
+// Print all the product names.
+products.map(pro=>pro.name)
+
+//   2.
+//  Create a list of categories for all products.
+products.map(pro=>pro.category)
+
+//   3. 
+// Find all products with a discount of 10% or more.
+products.filter(pro=>pro.discount >=10)
+
+//   4.
+//  List all products in the "Electronics" category.
+products.filter(pro=>pro.category==='Electronics')
+
+//   5.
+//  Create an array of products with only their names and prices.
+let arr1=products.map(pro=>pro.name);
+let arr2=products.map(pro=>pro.price);
+let finalArray=arr1.concat(arr2);
