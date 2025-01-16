@@ -30,3 +30,51 @@ const products = [
 //   3. Identify all products whose names contain the letter "e" and have a discount of at least 15%.
 //   4. Create a list of products from "Books" or "Electronics," showing only their names and final prices.
 //   5. Find all products priced over $300 and with a discount greater than 15%, and display their names and categories.
+
+
+
+// 1. 
+// Print all the product names.
+products.map(pro=>pro.name)
+
+//   2.
+//  Create a list of categories for all products.
+products.map(pro=>pro.category)
+
+//   3. 
+// Find all products with a discount of 10% or more.
+products.filter(pro=>pro.discount >=10)
+
+//   4.
+//  List all products in the "Electronics" category.
+products.filter(pro=>pro.category==='Electronics')
+
+//   5.
+//  Create an array of products with only their names and prices.
+let arr1=products.map(pro=>pro.name);
+let arr2=products.map(pro=>pro.price);
+let finalArray=arr1.concat(arr2);
+
+
+//   Medium
+//   1. Find all products where the price is greater than $100 and less than $800.
+  products.filter(pro=>pro.price>100 && pro.price<800);
+
+//   2. Generate an array of product names and final prices (price after discount).
+   products.map(pro=>{
+    let a=pro.price - ((pro.price * pro.discount)/100);
+    return {name:pro.name , discount:a};
+   } )
+
+//   3. Find all products from the "Clothing" category with discounts greater than 5%.
+products.filter(pro=>pro.category==="Clothing" && pro.discount>5);
+
+//   4. Identify all products that have no discount and display their names.
+ products.filter(pro=>pro.discount==0).map(pro=>pro.name);
+
+//   5. Create a new array with names of products whose original price is a multiple of $100.
+ products.filter(pro=> 
+    pro.price%100===0
+   ).map(pro=> {
+    return {name: pro.name ,amount: pro.price}
+   })
