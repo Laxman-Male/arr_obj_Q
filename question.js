@@ -78,3 +78,23 @@ products.filter(pro=>pro.category==="Clothing" && pro.discount>5);
    ).map(pro=> {
     return {name: pro.name ,amount: pro.price}
    })
+
+   //   Hard
+//   1. List all products in the "Home Appliances" category and calculate their final price after applying the discount.
+ products.filter(pro=>pro.category==="Home Appliances").map(pro=>(pro.price-(pro.discount*pro.price)/100));
+
+//   2. Find all products where the final price is less than $200 and display their names.
+ products.filter(pro=>pro.price<200).map(pro=>pro.name);
+
+//   3. Identify all products whose names contain the letter "e" and have a discount of at least 15%.
+products.filter(pro=>pro.name.search('e') && pro.discount>=15 )
+
+//   4. Create a list of products from "Books" or "Electronics," showing only their names and final prices.
+products.filter(pro=>pro.category==="Books" || pro.category==="Electronics").map(pro=>({
+  name:pro.name, price:pro.price
+}) )
+
+//   5. Find all products priced over $300 and with a discount greater than 15%, and display their names and categories.
+products.filter(pro=>pro.price >300 && pro.discount>15).map(pro=> ({
+  name:pro.name, category:pro.category
+}) )
