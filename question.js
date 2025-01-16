@@ -30,3 +30,71 @@ const products = [
 //   3. Identify all products whose names contain the letter "e" and have a discount of at least 15%.
 //   4. Create a list of products from "Books" or "Electronics," showing only their names and final prices.
 //   5. Find all products priced over $300 and with a discount greater than 15%, and display their names and categories.
+
+
+
+// 1. 
+// Print all the product names.
+products.map(pro=>pro.name)
+
+//   2.
+//  Create a list of categories for all products.
+products.map(pro=>pro.category)
+
+//   3. 
+// Find all products with a discount of 10% or more.
+products.filter(pro=>pro.discount >=10)
+
+//   4.
+//  List all products in the "Electronics" category.
+products.filter(pro=>pro.category==='Electronics')
+
+//   5.
+//  Create an array of products with only their names and prices.
+let arr1=products.map(pro=>pro.name);
+let arr2=products.map(pro=>pro.price);
+let finalArray=arr1.concat(arr2);
+
+
+//   Medium
+//   1. Find all products where the price is greater than $100 and less than $800.
+  products.filter(pro=>pro.price>100 && pro.price<800);
+
+//   2. Generate an array of product names and final prices (price after discount).
+   products.map(pro=>{
+    let a=pro.price - ((pro.price * pro.discount)/100);
+    return {name:pro.name , discount:a};
+   } )
+
+//   3. Find all products from the "Clothing" category with discounts greater than 5%.
+products.filter(pro=>pro.category==="Clothing" && pro.discount>5);
+
+//   4. Identify all products that have no discount and display their names.
+ products.filter(pro=>pro.discount==0).map(pro=>pro.name);
+
+//   5. Create a new array with names of products whose original price is a multiple of $100.
+ products.filter(pro=> 
+    pro.price%100===0
+   ).map(pro=> {
+    return {name: pro.name ,amount: pro.price}
+   })
+
+   //   Hard
+//   1. List all products in the "Home Appliances" category and calculate their final price after applying the discount.
+ products.filter(pro=>pro.category==="Home Appliances").map(pro=>(pro.price-(pro.discount*pro.price)/100));
+
+//   2. Find all products where the final price is less than $200 and display their names.
+ products.filter(pro=>pro.price<200).map(pro=>pro.name);
+
+//   3. Identify all products whose names contain the letter "e" and have a discount of at least 15%.
+products.filter(pro=>pro.name.search('e') && pro.discount>=15 )
+
+//   4. Create a list of products from "Books" or "Electronics," showing only their names and final prices.
+products.filter(pro=>pro.category==="Books" || pro.category==="Electronics").map(pro=>({
+  name:pro.name, price:pro.price
+}) )
+
+//   5. Find all products priced over $300 and with a discount greater than 15%, and display their names and categories.
+products.filter(pro=>pro.price >300 && pro.discount>15).map(pro=> ({
+  name:pro.name, category:pro.category
+}) )
